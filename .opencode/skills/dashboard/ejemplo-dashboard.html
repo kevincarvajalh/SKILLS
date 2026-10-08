@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Capitaria - Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#43B649; --verde-2:#34A773; --negro:#0A0A0A; --carbon:#222223;
+  --gris-claro:#F1F1F1; --blanco:#FFFFFF; --gris-medio:#888888;
+  --bg:#0A0A0A; --card:#222223; --txt:#FFFFFF; --cuerpo:#CCCCCC; --small:rgba(255,255,255,0.4); --linea:#333333;
+  --grad-acento:linear-gradient(90deg,#43B649,#34A773);
+}
+[data-theme="light"]{--bg:#F1F1F1; --card:#FFFFFF; --txt:#111111; --cuerpo:#444444; --small:rgba(0,0,0,0.4); --linea:#E2E2E2}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:"DIN Next LT Pro","Barlow",Arial,sans-serif;font-size:15px;display:flex;min-height:100vh}
+aside{width:220px;padding:20px;border-right:1px solid var(--linea);display:flex;flex-direction:column;gap:32px;flex-shrink:0}
+.logo{display:flex;flex-direction:column;gap:2px}
+.logo b{color:var(--txt);font-weight:900;font-size:18px;letter-spacing:-0.01em}
+.logo b i{color:var(--verde);font-style:normal}
+.logo small{font-weight:700;font-size:9px;letter-spacing:.10em;color:var(--gris-medio)}
+nav{display:flex;flex-direction:column;gap:16px}
+nav a{font-size:13px;color:var(--cuerpo);text-decoration:none}
+nav a.on{color:var(--verde);font-weight:700;letter-spacing:.10em;font-size:11px;text-transform:uppercase}
+main{flex:1;padding:20px 32px;display:flex;flex-direction:column;gap:20px;min-width:0}
+header{display:flex;justify-content:space-between;align-items:flex-end}
+.barra{width:28px;height:2px;background:var(--grad-acento);margin-bottom:12px}
+h1{font-weight:700;font-size:28px;letter-spacing:-0.01em}
+h1 span{color:var(--verde)}
+.small{font-weight:300;font-size:11px;letter-spacing:.02em;color:var(--small)}
+.btn.sec{background:none;border:1px solid var(--linea);color:var(--txt)}
+.acc{display:flex;gap:12px}
+.btn{background:var(--grad-acento);color:var(--negro);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:10px 16px;border-radius:4px;border:0}
+.grid{display:grid;gap:16px}
+.kpis{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.tag{font-weight:700;font-size:11px;letter-spacing:.10em;color:var(--verde);text-transform:uppercase}
+.kpi .v{font-weight:900;font-size:36px;letter-spacing:-0.02em}
+.kpi .d{font-size:13px;color:var(--cuerpo)}
+.row{grid-template-columns:2fr 1fr}
+h3{font-weight:700;font-size:18px}
+table{width:100%;border-collapse:collapse;font-size:13px;color:var(--cuerpo)}
+th{text-align:left;font-weight:700;font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--gris-medio);padding:0 0 12px}
+td{padding:12px 0;border-top:1px solid var(--linea)}
+td.n{text-align:right;color:var(--txt)}
+th.n{text-align:right}
+.bar{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--cuerpo)}
+.bar div.t{display:flex;justify-content:space-between}
+.bar .f{height:6px;border-radius:3px;background:var(--linea);overflow:hidden}
+.bar .f i{display:block;height:100%;background:var(--grad-acento)}
+.bar.g .f i{background:var(--gris-medio)}
+svg{width:100%;height:200px}
+@media(max-width:900px){aside{display:none}.kpis{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<aside>
+  <div class="logo"><b>CAPITARIA<i>↗</i></b><small>TRADERS ONLY</small></div>
+  <nav>
+    <a class="on">Resumen</a><a>Clientes</a><a>Traders</a><a>Cartera</a><a>Tareas</a>
+  </nav>
+</aside>
+<main>
+  <header>
+    <div>
+      <div class="barra"></div>
+      <h1>Resumen de <span>cartera</span></h1>
+      <div class="small" style="margin-top:6px">Datos ficticios · actualizado hoy 09:30</div>
+    </div>
+    <div class="acc"><button class="btn sec" id="t">Modo claro</button><button class="btn">Ver reporte →</button></div>
+  </header>
+
+  <section class="grid kpis">
+    <div class="card kpi"><span class="tag">Clientes activos</span><div class="v">1.284</div><div class="d">+3,2% vs mes anterior</div></div>
+    <div class="card kpi"><span class="tag">Depósitos netos</span><div class="v">$ 412 K</div><div class="d">+8,1% vs mes anterior</div></div>
+    <div class="card kpi"><span class="tag">Nuevos del mes</span><div class="v">96</div><div class="d">−1,4% vs mes anterior</div></div>
+    <div class="card kpi"><span class="tag">Pasivos a reactivar</span><div class="v">237</div><div class="d">Prioridad alta: 41</div></div>
+  </section>
+
+  <section class="grid row">
+    <div class="card">
+      <h3>Depósitos netos · últimos 12 meses</h3>
+      <svg viewBox="0 0 600 200" preserveAspectRatio="none">
+        <g stroke="var(--linea)" stroke-width="1"><line x1="0" y1="50" x2="600" y2="50"/><line x1="0" y1="100" x2="600" y2="100"/><line x1="0" y1="150" x2="600" y2="150"/></g>
+        <polyline fill="none" stroke="#43B649" stroke-width="2.5" stroke-linejoin="round"
+          points="0,150 55,140 110,145 165,120 220,125 275,100 330,105 385,80 440,85 495,60 550,55 600,40"/>
+        <polyline fill="none" stroke="#888888" stroke-width="1.5" stroke-dasharray="4 4"
+          points="0,160 55,155 110,150 165,145 220,140 275,135 330,128 385,120 440,115 495,108 550,100 600,95"/>
+      </svg>
+      <div class="small">Verde: real · Gris punteado: meta</div>
+    </div>
+    <div class="card">
+      <h3>Cartera por célula</h3>
+      <div class="bar"><div class="t"><span>Célula Norte</span><span>82%</span></div><div class="f"><i style="width:82%"></i></div></div>
+      <div class="bar g"><div class="t"><span>Célula Sur</span><span>64%</span></div><div class="f"><i style="width:64%"></i></div></div>
+      <div class="bar g"><div class="t"><span>Célula Centro</span><span>51%</span></div><div class="f"><i style="width:51%"></i></div></div>
+      <div class="bar g"><div class="t"><span>Célula Andina</span><span>38%</span></div><div class="f"><i style="width:38%"></i></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Top clientes pasivos</h3>
+    <table>
+      <thead><tr><th>Cliente</th><th>Célula</th><th>Último movimiento</th><th class="n">Saldo</th></tr></thead>
+      <tbody>
+        <tr><td>Cliente A. Rojas</td><td>Norte</td><td>hace 94 días</td><td class="n">$ 12.400</td></tr>
+        <tr><td>Cliente M. Pérez</td><td>Sur</td><td>hace 81 días</td><td class="n">$ 9.850</td></tr>
+        <tr><td>Cliente L. Soto</td><td>Centro</td><td>hace 77 días</td><td class="n">$ 7.300</td></tr>
+        <tr><td>Cliente D. Vera</td><td>Andina</td><td>hace 65 días</td><td class="n">$ 5.120</td></tr>
+      </tbody>
+    </table>
+    <div class="small">Datos ficticios con fines de demostración</div>
+  </section>
+</main>
+<script>
+const b=document.getElementById('t'),r=document.documentElement;
+b.onclick=()=>{const l=r.dataset.theme!=='light';r.dataset.theme=l?'light':'dark';b.textContent=l?'Modo oscuro':'Modo claro'};
+if(location.hash==='#light')b.click();
+</script>
+</body>
+</html>
