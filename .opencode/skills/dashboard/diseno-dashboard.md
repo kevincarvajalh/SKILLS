@@ -89,3 +89,6 @@ Definir como variables CSS y usar solo estas:
 
 ## Ejemplo de referencia
 `ejemplo-dashboard.html` (misma carpeta) es una implementación completa con datos ficticios en modo oscuro y claro (botón para alternar). Usa Barlow solo como sustituto visual mientras no esté cargada DIN Next LT Pro; en producción la fuente es DIN Next con fallback Arial.
+
+## Qué mostrar
+Antes de aplicar el estilo, definir qué mostrar con `ux-dashboard.md`.
