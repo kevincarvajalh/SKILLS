@@ -58,6 +58,8 @@ Definir como variables CSS y usar solo estas:
 - Barra de acento verde sobre el título de sección: 2 px de alto × 24–32 px de ancho (`--verde` o gradiente Acento).
 - Cards: fondo `--carbon` sobre `--negro`, sin sombras ni glow.
 - Una idea por card. Usar el espacio negativo, no rellenar por defecto.
+- Un dashboard es un único archivo HTML, sin framework.
+- El KPI principal usa el mayor tamaño de la escala; el resto, menores.
 - Jerarquía de lectura: logo → título → subtítulo → datos → CTA.
 - Estados (activo, alerta, etc.): resolver con verde + grises. No inventar rojo/ámbar; si se necesitan, pedir aprobación a dirección creativa.
 
